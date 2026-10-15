@@ -1,0 +1,78 @@
+@use '../abstracts' as *;
+
+// На мобильном вместо полной цепочки — ссылка «назад» на родительскую категорию
+.breadcrumbs {
+  padding-block: 12px;
+  font-size: 13px;
+  color: var(--color-muted-strong);
+
+  @include from(tablet) {
+    padding-block: 20px 0;
+  }
+
+  @include from(desktop) {
+    padding-top: 24px;
+  }
+
+  &__list {
+    @include reset-list;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 10px;
+  }
+
+  &__item {
+    display: none;
+
+    @include from(tablet) {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      &:not(:last-child)::after {
+        content: '/';
+        color: var(--color-disabled);
+      }
+    }
+
+    &--parent {
+      @include until(tablet) {
+        display: inline-flex;
+      }
+    }
+
+    &--current {
+      color: var(--color-ink);
+    }
+  }
+
+  &__link {
+    color: var(--color-muted-strong);
+
+    &:hover {
+      color: var(--color-ink);
+      text-decoration: underline;
+    }
+  }
+
+  &__item--parent &__link {
+    @include until(tablet) {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 32px;
+      color: var(--color-muted);
+
+      &::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-bottom: 2px solid currentcolor;
+        border-left: 2px solid currentcolor;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

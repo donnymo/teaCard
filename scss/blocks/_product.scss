@@ -1,0 +1,199 @@
+@use '../abstracts' as *;
+
+// Сетка карточки:
+// mobile  — одна колонка: фото → покупка → описание;
+// tablet  — фото | покупка, ниже описание во всю ширину (в две колонки);
+// desktop — фото слева на две строки, справа покупка и описание.
+.product {
+  display: grid;
+  grid-template-areas:
+    'gallery'
+    'summary'
+    'details';
+  row-gap: 20px;
+
+  @include from(tablet) {
+    grid-template-areas:
+      'gallery summary'
+      'details details';
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 36px 32px;
+    margin-top: 24px;
+  }
+
+  @include from(desktop) {
+    grid-template-areas:
+      'gallery summary'
+      'gallery details';
+    grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    gap: 32px clamp(40px, 4.5vw, 64px);
+    margin-top: 36px;
+  }
+
+  &__gallery {
+    grid-area: gallery;
+
+    @include from(desktop) {
+      position: sticky;
+      top: 24px;
+    }
+  }
+
+  &__summary {
+    display: flex;
+    flex-direction: column;
+    grid-area: summary;
+    min-width: 0;
+  }
+
+  &__details {
+    display: grid;
+    grid-area: details;
+    gap: 8px;
+    min-width: 0;
+
+    @include from(tablet) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 32px;
+    }
+
+    @include from(desktop) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+  }
+
+  &__category {
+    align-self: flex-start;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-category);
+
+    @include from(desktop) {
+      font-size: 12px;
+    }
+
+    &:hover {
+      color: var(--color-ink);
+    }
+  }
+
+  &__heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 6px;
+
+    @include from(desktop) {
+      gap: 24px;
+      margin-top: 10px;
+    }
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.15;
+
+    @include from(tablet) {
+      font-size: 32px;
+    }
+
+    @include from(desktop) {
+      font-size: 44px;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  &__meta {
+    @include reset-list;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 16px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--color-muted);
+
+    @include from(desktop) {
+      gap: 8px 20px;
+      margin-top: 14px;
+    }
+  }
+
+  &__meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 24px;
+
+    &--stock::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      margin-right: 2px;
+      border-radius: 50%;
+      background-color: var(--color-success);
+    }
+  }
+
+  &__sku {
+    font-weight: 600;
+    color: var(--color-ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__price {
+    margin-top: 18px;
+
+    @include from(tablet) {
+      margin-top: 20px;
+    }
+
+    @include from(desktop) {
+      margin-top: 26px;
+    }
+  }
+
+  &__purchase {
+    margin-top: 20px;
+
+    @include from(tablet) {
+      padding-top: 20px;
+      border-top: 1px solid var(--color-line);
+    }
+
+    @include from(desktop) {
+      margin-top: 28px;
+      padding-top: 24px;
+    }
+  }
+
+  &__info {
+    min-width: 0;
+  }
+
+  &__footer {
+    margin-top: 16px;
+    font-size: 14px;
+
+    @include from(tablet) {
+      margin-top: 18px;
+    }
+  }
+
+  &__related {
+    color: var(--color-muted);
+  }
+
+}

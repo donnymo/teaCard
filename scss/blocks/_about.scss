@@ -1,0 +1,39 @@
+@use '../abstracts' as *;
+
+.about {
+  margin-top: 4px;
+  padding: 18px;
+  border: 1px solid var(--color-cream-box);
+  border-radius: var(--radius-l);
+  background-color: var(--color-cream);
+
+  @include from(tablet) {
+    margin-top: 0;
+    padding: 20px 22px;
+  }
+
+  @include from(desktop) {
+    padding: 22px 24px;
+  }
+
+  &__title {
+    margin-bottom: 6px;
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+
+    @include from(tablet) {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    color: var(--color-text);
+
+    @include from(tablet) {
+      font-size: 15px;
+    }
+  }
+}

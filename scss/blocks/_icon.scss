@@ -1,0 +1,23 @@
+// Иконки из SVG-спрайта
+.icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  &--small {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2;
+  }
+
+  &--tiny {
+    width: 14px;
+    height: 14px;
+    stroke-width: 2;
+  }
+}

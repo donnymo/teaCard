@@ -1,0 +1,44 @@
+@use '../abstracts' as *;
+
+.purchase {
+  &__field {
+    margin-top: 16px;
+
+    @include from(tablet) {
+      margin-top: 20px;
+    }
+
+    @include from(desktop) {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 26px;
+    }
+  }
+
+  &__label {
+    font-size: 13px;
+    color: var(--color-muted);
+
+    // подпись видна только на десктопе, для скринридеров — всегда
+    @include until(desktop) {
+      @include visually-hidden;
+    }
+  }
+
+  &__controls {
+    display: grid;
+    grid-template-columns: 124px minmax(0, 1fr);
+    gap: 8px;
+
+    @include from(tablet) {
+      grid-template-columns: 136px minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    @include from(desktop) {
+      grid-template-columns: 144px minmax(0, 1fr);
+      gap: 12px;
+    }
+  }
+}

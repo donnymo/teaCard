@@ -1,0 +1,62 @@
+// Круглая кнопка-иконка (корзина, избранное, зум и т. д.)
+.icon-button {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-ink);
+  background-color: var(--color-white);
+  transition: border-color var(--transition), background-color var(--transition), color var(--transition);
+
+  &:hover {
+    border-color: var(--color-ink);
+  }
+
+  &--plain {
+    border-color: transparent;
+    background-color: transparent;
+
+    &:hover {
+      border-color: var(--color-border);
+      background-color: var(--color-white);
+    }
+  }
+
+  &--dark {
+    border-color: var(--color-ink);
+    color: var(--color-white);
+    background-color: var(--color-ink);
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &--favorite[aria-pressed='true'] {
+    border-color: var(--color-price);
+    color: var(--color-price);
+    background-color: var(--color-favorite-bg);
+
+    .icon {
+      fill: currentcolor;
+    }
+  }
+
+  &__icon--opened {
+    display: none;
+  }
+
+  &[aria-expanded='true'] &__icon--closed {
+    display: none;
+  }
+
+  &[aria-expanded='true'] &__icon--opened {
+    display: block;
+  }
+}

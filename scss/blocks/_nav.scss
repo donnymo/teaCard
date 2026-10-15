@@ -1,0 +1,61 @@
+@use '../abstracts' as *;
+
+.nav {
+  &__list {
+    @include reset-list;
+
+    border-top: 1px solid var(--color-cream-border);
+
+    @include from(desktop) {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      border-top: 0;
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid var(--color-cream-border);
+
+    @include from(desktop) {
+      border-bottom: 0;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 48px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-text);
+
+    @include from(desktop) {
+      display: inline-flex;
+      min-height: 44px;
+    }
+
+    &--current {
+      color: var(--color-ink);
+    }
+
+    &:hover {
+      color: var(--color-accent-dark);
+    }
+
+    &--accent,
+    &--accent:hover {
+      color: var(--color-gift);
+    }
+  }
+
+  &__chevron {
+    @include until(desktop) {
+      margin-left: auto;
+      transform: rotate(-90deg);
+    }
+  }
+}

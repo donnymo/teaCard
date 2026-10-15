@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+:root {
+  --color-accent: #f7d21e;
+  --color-accent-dark: #8a6d00;
+  --color-ink: #1f1f1f;
+  --color-text: #3a3a3a;
+  --color-muted: #5e5b50;
+  --color-muted-strong: #6b6b6b;
+  --color-disabled: #b5b2a6;
+  --color-price: #d32029;
+  --color-category: #7a6400;
+  --color-gift: #b8520b;
+  --color-success: #2e7d4f;
+  --color-white: #fff;
+  --color-cream: #fdfbef;
+  --color-cream-border: #efebd8;
+  --color-cream-box: #f1ecd2;
+  --color-line: #efede4;
+  --color-border: #e6e2d3;
+  --color-border-strong: #d6d2c2;
+  --color-border-hover: #8f8b7c;
+  --color-placeholder: #757266;
+  --color-hover: #f6f4ec;
+  --color-favorite-bg: #fff5f5;
+  --color-focus: var(--color-ink);
+  --color-backdrop: rgb(31 31 31 / 80%);
+  --shadow-button-hover: 0 10px 24px -12px rgb(31 31 31 / 70%);
+  --font-base: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --container-padding: 16px;
+  --radius-s: 4px;
+  --radius-m: 6px;
+  --radius-l: 8px;
+  --radius-pill: 999px;
+  --transition: 0.2s ease;
+
+  @include from(tablet) {
+    --container-padding: 32px;
+  }
+
+  @include from(desktop) {
+    --container-padding: 24px;
+  }
+}

@@ -1,0 +1,33 @@
+@use 'base/root';
+@use 'base/reset';
+@use 'base/base';
+
+// Общие блоки
+@use 'blocks/page';
+@use 'blocks/container';
+@use 'blocks/visually-hidden';
+@use 'blocks/skip-link';
+@use 'blocks/icon';
+@use 'blocks/link';
+@use 'blocks/icon-button';
+@use 'blocks/button';
+
+// header
+@use 'blocks/logo';
+@use 'blocks/contacts';
+@use 'blocks/cart-link';
+@use 'blocks/nav';
+@use 'blocks/search';
+@use 'blocks/header';
+
+// Карточка товара
+@use 'blocks/breadcrumbs';
+@use 'blocks/product';
+@use 'blocks/gallery';
+@use 'blocks/price';
+@use 'blocks/packs';
+@use 'blocks/purchase';
+@use 'blocks/quantity';
+@use 'blocks/about';
+@use 'blocks/accordion';
+@use 'blocks/lightbox';

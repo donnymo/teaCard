@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+
+  @include from(desktop) {
+    gap: 8px 14px;
+  }
+
+  &__current {
+    // на мобильном актуальная цена идёт первой
+    order: -1;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-price);
+    font-variant-numeric: tabular-nums;
+
+    @include from(tablet) {
+      order: 0;
+    }
+
+    @include from(desktop) {
+      font-size: 34px;
+    }
+  }
+
+  &__old {
+    font-size: 16px;
+    color: var(--color-muted-strong);
+    font-variant-numeric: tabular-nums;
+
+    @include from(desktop) {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+.page {
+  &__main {
+    padding-bottom: 48px;
+
+    @include from(tablet) {
+      padding-bottom: 64px;
+    }
+
+    @include from(desktop) {
+      padding-bottom: 80px;
+    }
+  }
+}

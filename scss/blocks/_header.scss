@@ -1,0 +1,154 @@
+@use '../abstracts' as *;
+
+.header {
+  border-bottom: 1px solid var(--color-cream-border);
+  background-color: var(--color-cream);
+
+  @include from(desktop) {
+    border-bottom-color: var(--color-line);
+    background-color: var(--color-white);
+  }
+
+  &__top {
+    @include from(desktop) {
+      border-bottom: 1px solid var(--color-cream-border);
+      background-color: var(--color-cream);
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 60px;
+    padding-block: 8px;
+
+    @include from(tablet) {
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    @include from(desktop) {
+      justify-content: space-between;
+      gap: 32px;
+      min-height: 76px;
+    }
+  }
+
+  &__burger {
+    margin-left: -8px;
+
+    @include from(desktop) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    margin-right: auto;
+
+    @include from(desktop) {
+      margin-right: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @include from(tablet) {
+      gap: 12px;
+    }
+  }
+
+  &__search-toggle {
+    display: none;
+
+    @include from(tablet) {
+      display: inline-flex;
+    }
+
+    @include from(desktop) {
+      display: none;
+    }
+  }
+
+  &__login {
+    display: none;
+
+    @include from(desktop) {
+      display: inline-flex;
+    }
+  }
+
+  // Нижняя строка: на мобильном — поиск (+ меню при открытии),
+  // на планшете — появляется только при открытом меню или поиске,
+  // на десктопе — навигация и поиск в одну строку.
+  &__bottom {
+    padding-bottom: 12px;
+
+    @include from(tablet) {
+      display: none;
+      padding-bottom: 16px;
+    }
+
+    @include from(desktop) {
+      display: block;
+      padding-bottom: 0;
+    }
+  }
+
+  &--menu-open &__bottom,
+  &--search-open &__bottom {
+    @include from(tablet) {
+      display: block;
+    }
+  }
+
+  &__bottom-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include from(desktop) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      min-height: 72px;
+    }
+  }
+
+  &__nav {
+    display: none;
+    order: 2;
+
+    @include from(desktop) {
+      display: block;
+      order: 0;
+    }
+  }
+
+  &--menu-open &__nav {
+    display: block;
+  }
+
+  &__search {
+    order: 1;
+
+    @include from(tablet) {
+      display: none;
+    }
+
+    @include from(desktop) {
+      display: flex;
+      flex: 0 1 380px;
+    }
+  }
+
+  &--search-open &__search {
+    @include from(tablet) {
+      display: flex;
+    }
+  }
+}

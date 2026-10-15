@@ -1,0 +1,65 @@
+.search {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 4px 0 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-white);
+  transition: border-color var(--transition);
+
+  &:focus-within {
+    border-color: var(--color-ink);
+  }
+
+  &__input {
+    flex: 1;
+    margin-right: 8px;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    font-size: 14px;
+    background: none;
+    outline: none;
+    appearance: none;
+    text-overflow: ellipsis;
+
+    &::placeholder {
+      color: var(--color-placeholder);
+      text-overflow: ellipsis;
+    }
+
+    // удаление системного крестика очистки и стиля поля type="search"
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+      appearance: none;
+    }
+
+    &::-ms-clear {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 36px;
+    border: 0;
+    border-radius: var(--radius-pill);
+    color: var(--color-ink);
+    background-color: var(--color-accent);
+    transition: background-color var(--transition), color var(--transition);
+
+    &:hover {
+      color: var(--color-accent);
+      background-color: var(--color-ink);
+    }
+  }
+}

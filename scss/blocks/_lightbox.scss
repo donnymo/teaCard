@@ -1,0 +1,41 @@
+.lightbox {
+  width: min(92vw, 92vh, 900px);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: var(--radius-l);
+  background-color: var(--color-white);
+
+  &::backdrop {
+    background-color: var(--color-backdrop);
+  }
+
+  &[open] {
+    animation: lightbox-in 0.2s ease;
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: inherit;
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

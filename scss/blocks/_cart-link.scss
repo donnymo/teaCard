@@ -1,0 +1,35 @@
+.cart-link {
+  &__badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border: 2px solid var(--color-cream);
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-ink);
+    background-color: var(--color-accent);
+    animation: cart-link-pop 0.3s ease;
+  }
+}
+
+@keyframes cart-link-pop {
+  0% {
+    transform: scale(0.4);
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
